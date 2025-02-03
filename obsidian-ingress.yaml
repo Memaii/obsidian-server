@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: couchdb-ingress
+  namespace: kube-system
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: "Host(`obsidian.dmvlab.eu` && PathPrefix(`/_utils`)"
+      kind: Rule
+      services:
+        - name: couchdb-service
+          port: 5984
+  tls:
+    certResolver: myresolver

@@ -1,0 +1,28 @@
+services:
+  couchdb:
+    image: "couchdb:latest"
+    container_name: obsidian-server
+    labels:
+      app: obsidian-server
+    restart: unless-stopped
+    ports:
+       - "127.0.0.1:5984:5984"
+    environment:
+      COUCHDB_USER: "${COUCHDB_USER}"
+      COUCHDB_PASSWORD: "${COUCHDB_PASSWORD}"
+    volumes:
+      - couchdb_data:/opt/couchdb/data
+    networks:
+      - traefik-network
+    env_file:
+      - .env
+
+
+volumes:
+  couchdb_data:
+
+
+networks:
+    traefik-network:
+      external: true
+
