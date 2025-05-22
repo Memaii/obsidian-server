@@ -2,6 +2,10 @@
 
 This Docker-based project sets up a CouchDB instance preconfigured for the Self-hosted LiveSync plugin for Obsidian. It provides a free, self-hosted alternative to Obsidian Sync, enabling real-time synchronization between multiple Obsidian clients.
 
+You need to use this Github project to make it work
+   ```bash
+   git clone https://github.com/vrtmrz/obsidian-livesync.git
+   ```
 ---
 
 ## ✨ Features
